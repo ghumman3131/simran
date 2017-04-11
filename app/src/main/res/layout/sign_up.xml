@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/ty"
+    android:scrollbars="vertical"
+    >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+    <TextView
+
+        android:id="@+id/text_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="100dp"
+        android:text="Register"
+        android:textColor="#fff"
+        android:textSize="40dp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/edit_1"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@id/text_1"
+        android:layout_margin="20dp"
+        android:background="#c8ffffff"
+        android:hint=" Username"
+        android:textColorHint="#000"
+
+        android:paddingLeft="5dp"
+        android:textColor="#000"
+
+
+        />
+
+    <EditText
+        android:id="@+id/edit_2"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@id/edit_1"
+        android:layout_margin="20dp"
+        android:background="#c8ffffff"
+        android:hint=" Mobie no."
+        android:inputType="number"
+        android:maxLength="10"
+        android:paddingLeft="5dp"
+        android:textColor="#000"
+        android:textColorHint="#000"
+
+
+        />
+
+    <LinearLayout
+        android:id="@+id/linear_1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/edit_2"
+        android:layout_margin="20dp"
+        android:weightSum="2"
+        >
+
+        <EditText
+
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:id="@+id/edit_3"
+            android:layout_weight="1"
+            android:background="#c8ffffff"
+            android:hint="Password"
+            android:maxLength="10"
+            android:layout_marginRight="5dp"
+            android:paddingLeft="5dp"
+            android:textColor="#000"
+            android:textColorHint="#000"
+
+
+            />
+
+        <EditText
+
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:id="@+id/edit_4"
+            android:layout_weight="1"
+            android:background="#c8ffffff"
+            android:hint="Confirm password"
+            android:textColorHint="#000"
+            android:maxLength="10"
+            android:paddingLeft="5dp"
+            android:textColor="#000" />
+
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/button_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/linear_1"
+        android:layout_centerInParent="true"
+        android:layout_margin="20dp"
+        android:background="#9e237eec"
+        android:gravity="center"
+        android:text="Next"
+        android:padding="10dp"
+        android:textSize="30dp"
+        android:textStyle="italic"
+        android:onClick="gotosignup"
+        android:clickable="true"
+        />
+    </RelativeLayout>
+
+</ScrollView>
+
+
+
+
+
+
+
+
+
+
+
+
+
