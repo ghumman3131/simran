@@ -138,7 +138,9 @@ public class Main_otp_code extends AppCompatActivity {
                             } catch (JSONException e) {
                                 e.printStackTrace();
                             }
-                            JsonObjectRequest jobreq = new JsonObjectRequest("http://"+ php.abc+"/signup.php", jobj, new Response.Listener<JSONObject>() {
+
+                            System.out.println(jobj);
+                            JsonObjectRequest jobreq = new JsonObjectRequest("http://192.168.0.50/signup.php", jobj, new Response.Listener<JSONObject>() {
                                 @Override
                                 public void onResponse(JSONObject response) {
 
@@ -171,6 +173,7 @@ public class Main_otp_code extends AppCompatActivity {
                                 public void onErrorResponse(VolleyError error) {
 
 
+                                    System.out.println(error);
                                 }
                             }
                         );

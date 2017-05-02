@@ -6,6 +6,6 @@ package signin;
 
 public class php
 {
-    public  static String abc="192.168.0.20";
+    public  static String abc="192.168.0.26";
 
 }

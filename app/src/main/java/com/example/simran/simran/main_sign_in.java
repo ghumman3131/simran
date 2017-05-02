@@ -60,13 +60,15 @@ public class main_sign_in extends AppCompatActivity {
 
         try {
 
-            jobj.put("mobile_key",getIntent().getStringExtra("mobile_key"));
-            jobj.put("password_key",getIntent().getStringExtra("password_key"));
+            jobj.put("mobile_key", stringmobile);
+            jobj.put("password_key",stringpassword);
 
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        JsonObjectRequest jobreq = new JsonObjectRequest("http://192.168.0.15/signin.php", jobj, new Response.Listener<JSONObject>() {
+
+        System.out.println(jobj);
+        JsonObjectRequest jobreq = new JsonObjectRequest("http://192.168.0.50/signin.php", jobj, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
 
