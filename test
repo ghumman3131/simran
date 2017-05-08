@@ -1,0 +1,72 @@
+<?php
+
+Require_once("header.php");
+
+$conn_string = "host=$host port=$port dbname=$db user=$user password=$password";
+
+
+$dbconn = pg_connect($conn_string)
+        or die('Could not connect: ' . pg_last_error());
+		
+$json = file_get_contents('php://input');
+//$json = '{"key1":"8888888888","key2":"ghumman2"}';
+$param = json_decode($json,true);
+
+$e1 = $param['key1'];
+$e2 = $param['key2'];
+
+
+		
+$result = pg_query($dbconn, "select * from userInfo where mobile = '$e1';");
+if($result){
+$num_rows = pg_num_rows($result);
+
+if($num_rows >0)
+{
+	$row = pg_fetch_array($result);
+	$hashed_pass = $row['password'];
+	if (hash_equals($hashed_pass, crypt($e2, $hashed_pass)))
+		{
+			$useridtemp = $row['userid'];
+			$usernametemp = $row['name'];
+			$check_farm = pg_query($dbconn, "select farmid from farmdetail where userid = '$useridtemp';");
+			
+			
+			$num_farms = pg_num_rows($check_farm);
+			if($num_farms > 0 )
+			{
+				$check_farm_temp = pg_fetch_array($check_farm);
+				$response['farmid'] = $check_farm_temp['farmid'];
+			}
+			else{
+				
+				$response['farmid'] = "";
+				
+			}
+			
+			 $response['userid'] = $useridtemp ;
+			 $response['name'] = $usernametemp;
+			 $response['key'] = "done";
+             echo json_encode($response);
+       }
+	   else {
+		   $response['key'] = "undone";
+		   echo json_encode($response);
+	   }
+}
+
+else {
+	 $response['key'] = "not_found";
+		   echo json_encode($response);
+}
+} else {
+	 $response['key'] = "error";
+		   echo json_encode($response);
+}
+//dump the result object
+//var_dump($result);
+
+// Closing connection
+pg_close($dbconn);
+
+?>
