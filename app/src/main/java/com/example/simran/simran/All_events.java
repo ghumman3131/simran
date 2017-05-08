@@ -44,7 +44,7 @@ public class All_events extends Fragment {
     {
         JSONObject job = new JSONObject();
 
-        JsonObjectRequest jobreq = new JsonObjectRequest("http://192.168.0.50/get_events.php", job, new Response.Listener<JSONObject>() {
+        JsonObjectRequest jobreq = new JsonObjectRequest("http://"+Internet.ip+"/get_events.php", job, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
 

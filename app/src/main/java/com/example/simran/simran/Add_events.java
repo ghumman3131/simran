@@ -150,7 +150,7 @@ public class Add_events extends Fragment {
 
                 System.out.println(job);
 
-                JsonObjectRequest jobreq = new JsonObjectRequest("http://192.168.0.50/add_event.php", job, new Response.Listener<JSONObject>() {
+                JsonObjectRequest jobreq = new JsonObjectRequest("http://"+Internet.ip+"/add_event.php", job, new Response.Listener<JSONObject>() {
                     @Override
                     public void onResponse(JSONObject response) {
 
